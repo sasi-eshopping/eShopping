@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
 
 /**
  * @author sasi
@@ -20,7 +22,9 @@ public class Addresses {
 	
 	private Integer userID;
 
+	
 	private String fullName;
+	
 	private String streetAddress;
 
 	private String postCode;
@@ -29,6 +33,8 @@ public class Addresses {
 	private String house;
 	private String phone;
 	private String state;
+	
+	
 	private String email;
 	private String isActive;
 

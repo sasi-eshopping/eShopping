@@ -1,5 +1,7 @@
 package com.ecommerce.application.eShopping.service.impl;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -44,6 +46,13 @@ public class AddressServiceImpl implements AddressService {
 	public Iterable<Addresses> findAll() {
 		// TODO Auto-generated method stub
 		Iterable<Addresses> addresses=addressrepo.findAll();
+		return addresses;
+	}
+
+	@Override
+	public Addresses findbyID(Integer id) {
+		// TODO Auto-generated method stub
+	    Addresses addresses=addressrepo.findById(id).orElse(null);
 		return addresses;
 	}
 

@@ -14,4 +14,6 @@ public interface AddressService {
 
 	public Iterable<Addresses> findAll();
 	
+	public Addresses findbyID(Integer id);
+	
 }
