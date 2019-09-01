@@ -5,7 +5,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.ecommerce.application.eShopping.entityBeans.Addresses;
+import com.ecommerce.application.eShopping.entityBeans.Address;
 import com.ecommerce.application.eShopping.repo.AddressRepo;
 import com.ecommerce.application.eShopping.service.AddressService;
 
@@ -16,7 +16,7 @@ public class AddressServiceImpl implements AddressService {
 	AddressRepo addressrepo;
 	
 	@Override
-	public String saveAddress(Addresses address) {
+	public String saveAddress(Address address) {
 		// TODO Auto-generated method stub
 
 		
@@ -43,16 +43,16 @@ public class AddressServiceImpl implements AddressService {
 	}
 
 	@Override
-	public Iterable<Addresses> findAll() {
+	public Iterable<Address> findAll() {
 		// TODO Auto-generated method stub
-		Iterable<Addresses> addresses=addressrepo.findAll();
+		Iterable<Address> addresses=addressrepo.findAll();
 		return addresses;
 	}
 
 	@Override
-	public Addresses findbyID(Integer id) {
+	public Address findbyID(Integer id) {
 		// TODO Auto-generated method stub
-	    Addresses addresses=addressrepo.findById(id).orElse(null);
+	    Address addresses=addressrepo.findById(id).orElse(null);
 		return addresses;
 	}
 

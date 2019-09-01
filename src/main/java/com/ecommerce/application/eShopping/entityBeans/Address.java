@@ -9,13 +9,14 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 /**
  * @author sasi
  *
  */
 @Entity
-public class Addresses {
+public class Address {
 	@Id
     @GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer addressID;
@@ -34,7 +35,7 @@ public class Addresses {
 	private String phone;
 	private String state;
 	
-	
+    @NotNull(message="email required")
 	private String email;
 	private String isActive;
 

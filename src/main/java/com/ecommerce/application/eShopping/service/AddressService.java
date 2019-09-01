@@ -1,10 +1,10 @@
 package com.ecommerce.application.eShopping.service;
 
-import com.ecommerce.application.eShopping.entityBeans.Addresses;
+import com.ecommerce.application.eShopping.entityBeans.Address;
 
 public interface AddressService {
 	
-	public String saveAddress(Addresses n);
+	public String saveAddress(Address n);
 
 	public void deleteAddress();
 
@@ -12,8 +12,8 @@ public interface AddressService {
 
 	public void updateAddress();
 
-	public Iterable<Addresses> findAll();
+	public Iterable<Address> findAll();
 	
-	public Addresses findbyID(Integer id);
+	public Address findbyID(Integer id);
 	
 }
