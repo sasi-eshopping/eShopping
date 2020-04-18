@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -53,18 +54,19 @@ public class UserRestController {
 	@GetMapping(path = "/getAddress/{id}")
 	/* @HystrixCommand(fallbackMethod = "getFallbackAdress") */
 	
-	public ResponseEntity<Address> getAddress(@PathVariable("id") Integer id) throws NoData{
+	public ResponseEntity<Address> getAddress(@PathVariable("id") Integer id,@RequestParam ("access_token") String tken) throws NoData{
 
 		Address adress = addressService.findbyID(1);
+		adress.setFullName("bnsjbakdS");
 		// RestTemplate rest=new RestTemplate();
 		Product prod=new Product();
 		
-		prod=productInfo.getProduct("http://eShopping-Prod-Service/products/getProduct/"+String.valueOf(id));
+		prod=productInfo.getProduct("http://eShopping-Prod-Service/products/getProduct/"+String.valueOf(id),tken);
 		
 		System.out.println("Hi I am from Product" + prod.getPrice());
-		if (adress == null) {
-			throw new DBException.NoData("No row found for id : ");
-		}
+		/*
+		 * if (prod == null) { throw new DBException.NoData("No row found for id : "); }
+		 */
 
 		return new ResponseEntity<Address>(adress, HttpStatus.OK);
 
